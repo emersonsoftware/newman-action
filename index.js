@@ -1,7 +1,14 @@
-const core = require('@actions/core')
-const newman = require('newman')
-const html = require('newman-reporter-html')
-const htmlextra = require('newman-reporter-htmlextra')
+const core = require('@actions/core');
+const newman = require('newman');
+
+const html = require('newman-reporter-html');
+html.on('ready', function() {
+  console.log('module html is ready');
+});
+const htmlextra = require('newman-reporter-htmlextra');
+htmlextra.on('ready', function() {
+  console.log('module htmlextra is ready');
+});
 
 init()
 
